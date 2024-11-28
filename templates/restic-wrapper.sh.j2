@@ -9,4 +9,4 @@ export {{ k | upper }}={{ v | trim | quote }}
 {% endfor %}
 {% endif %}
 
-"{{ restic_install_path }}/restic" {% if item.legacy_list_objects is defined %}-o s3.list-objects-v1={{ item.legacy_list_objects }} {% endif %}"$@"
+"{{ restic_install_path }}/restic" {% if item.restic_options is defined %}-o {{ item.restic_options  }} {% endif %} {% if item.legacy_list_objects is defined %}-o s3.list-objects-v1={{ item.legacy_list_objects }} {% endif %}"$@"
